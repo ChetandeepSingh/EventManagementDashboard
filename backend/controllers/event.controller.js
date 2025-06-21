@@ -1,13 +1,19 @@
 import * as eventService from '../services/event.service.js';
 
 // Create a new event (Organizer)
+import prisma from '../prisma.js'; // or wherever your Prisma client is
+
 export const createEvent = async (req, res) => {
     try {
-        const createdById = req.user.id; //
+        const createdById = req.user.id;
         const { name, description, startTime, endTime, location } = req.body;
-        // todo:
-        // if user is not an organizer, return error
-        // first identify user and his role then check if role is organizer      
+
+        const user = await prisma.User.findUnique({ where: { id: createdById } });
+
+        if (!user || user.role !== 'organizer') {
+            return res.status(403).json({ error: 'Only organizers can create events.' });
+        }
+
         const event = await eventService.createEvent({
             name,
             description,
@@ -21,6 +27,7 @@ export const createEvent = async (req, res) => {
         res.status(400).json({ error: error.message || 'Could not create event.' });
     }
 };
+
 
 // List all events
 export const getEvents = async (req, res) => {
@@ -49,6 +56,10 @@ export const updateEvent = async (req, res) => {
     try {
         const { id } = req.params;
         const { name, description, startTime, endTime, location } = req.body;
+        const user = await prisma.User.findUnique({ where: { id: req.user.id } });
+        if (!user || user.role !== 'organizer') {
+            return res.status(403).json({ error: 'Only organizers can update events.' });
+        }
         const event = await eventService.updateEvent(Number(id), { name, description, startTime, endTime, location });
         res.json(event);
     } catch (error) {
@@ -61,6 +72,10 @@ export const deleteEvent = async (req, res) => {
     try {
         const { id } = req.params;
         await eventService.deleteEvent(Number(id));
+        const user = await prisma.User.findUnique({ where: { id: req.user.id } });
+        if (!user || user.role !== 'organizer') {
+            return res.status(403).json({ error: 'Only organizers can delete events.' });
+        }
         res.json({ message: 'Event deleted' });
     } catch (error) {
         res.status(404).json({ error: error.message || 'Event not found or delete failed.' });
