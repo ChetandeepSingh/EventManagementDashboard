@@ -1,0 +1,45 @@
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.event-form input,
+.event-form textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.event-form input:focus,
+.event-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.date-time-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.event-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+}
