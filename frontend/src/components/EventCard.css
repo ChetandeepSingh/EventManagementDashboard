@@ -1,55 +1,76 @@
 .event-card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 1.2rem;
-  flex: 1 1 300px;       
-  max-width: 300px;      
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 1rem auto;
-  max-width: 500px;
-  transition: transform 0.2s ease;
+  flex: 1 1 300px;
+  max-width: 300px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .event-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.event-header {
+  margin-bottom: 0.5rem;
 }
 
 .event-title {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin: 0;
+}
+
+.event-datetime {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.2rem;
+}
+
+.event-location {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0;
 }
 
 .event-description {
   font-size: 1rem;
-  color: #555;
+  color: #444;
+  flex-grow: 1;
   margin-bottom: 1rem;
 }
 
-.event-button {
+.event-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.event-btn {
+  flex: 1;
   background-color: #007bff;
   color: white;
-  padding: 0.5rem 1rem;
   border: none;
+  padding: 0.5rem 0.8rem;
   border-radius: 6px;
-  margin-right: 0.5rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.event-button:hover {
+.event-btn:hover {
   background-color: #0056b3;
 }
 
-.event-button.delete {
+.event-btn.delete {
   background-color: #dc3545;
 }
 
-.event-button.delete:hover {
+.event-btn.delete:hover {
   background-color: #b02a37;
-}
-
-.event-button-group {
-  display: flex;
-  gap: 0.5rem;
 }

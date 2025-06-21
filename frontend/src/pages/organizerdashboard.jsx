@@ -5,15 +5,27 @@ import './OrganizerDashboard.css';
 
 const OrganizerDashboard = () => {
   const [events, setEvents] = useState([
-    { id: 1, title: 'Hackathon', description: '24hr coding challenge' },
-    { id: 2, title: 'Tech Talk',  description: 'Talk on AI & ML' },
-        { id: 3, title: "Workshop",  description: "Hands-on React" },
-    { id: 4, title: "Webinar",   description: "Django + JWT" },
+    {
+      id: 1,
+      title: "Hackathon",
+      date: "2025-07-10",
+      time: "09:00",
+      location: "Online",
+      description: "24hr coding challenge"
+    },
+    {
+      id: 2,
+      title: "Tech Talk",
+      date: "2025-07-15",
+      time: "14:30",
+      location: "Auditorium A",
+      description: "Deep dive into AI & ML"
+    },
   ]);
   const [showModal, setShowModal] = useState(false);
 
   const handleCreate = (newEvent) => {
-    setEvents([ { id: Date.now(), ...newEvent }, ...events ]);
+    setEvents([{ id: Date.now(), ...newEvent }, ...events]);
     setShowModal(false);
   };
 
@@ -25,10 +37,7 @@ const OrganizerDashboard = () => {
     <div className="organizer-dashboard-container">
       <div className="header">
         <h2>Your Events</h2>
-        <button
-          className="create-btn"
-          onClick={() => setShowModal(true)}
-        >
+        <button className="create-btn" onClick={() => setShowModal(true)}>
           + Create Event
         </button>
       </div>
@@ -45,20 +54,11 @@ const OrganizerDashboard = () => {
       </div>
 
       {showModal && (
-        <div
-          className="modal-overlay"
-          onClick={() => setShowModal(false)}
-        >
-          <div
-            className="modal-content"
-            onClick={e => e.stopPropagation()}
-          >
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
             <h3>Create New Event</h3>
             <EventForm onSubmit={handleCreate} />
-            <button
-              className="close-modal"
-              onClick={() => setShowModal(false)}
-            >
+            <button className="close-modal" onClick={() => setShowModal(false)}>
               ×
             </button>
           </div>
