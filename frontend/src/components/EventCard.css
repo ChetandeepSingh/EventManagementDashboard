@@ -1,0 +1,55 @@
+.event-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.2rem;
+  flex: 1 1 300px;       
+  max-width: 300px;      
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  max-width: 500px;
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.event-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.event-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.event-button:hover {
+  background-color: #0056b3;
+}
+
+.event-button.delete {
+  background-color: #dc3545;
+}
+
+.event-button.delete:hover {
+  background-color: #b02a37;
+}
+
+.event-button-group {
+  display: flex;
+  gap: 0.5rem;
+}

@@ -1,17 +1,18 @@
 import React from 'react';
+import './EventCard.css'; 
 
 const EventCard = ({ event, showRegisterButton, showEditButtons }) => {
   return (
-    <div style={{ border: '1px solid gray', padding: '1rem', margin: '1rem 0' }}>
-      <h3>{event.title}</h3>
-      <p>{event.description}</p>
+    <div className="event-card">
+      <h3 className="event-title">{event.title}</h3>
+      <p className="event-description">{event.description}</p>
 
-      {showRegisterButton && <button>Register</button>}
+      {showRegisterButton && <button className="event-button">Register</button>}
       {showEditButtons && (
-        <>
-          <button>Edit</button>
-          <button>Delete</button>
-        </>
+        <div className="event-button-group">
+          <button className="event-button">Edit</button>
+          <button className="event-button delete">Delete</button>
+        </div>
       )}
     </div>
   );
