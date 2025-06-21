@@ -1,7 +1,7 @@
 // for Handling HTTP request
 
 import { validateEmail,validatePassword } from '../utils/validators.js'
-import { createUser, loginUser, logoutUser } from "../services.js/user.service.js";
+import { createUser, loginUser, logoutUser } from "../services/user.service.js";
 import prisma from '../prisma.js';
 
 

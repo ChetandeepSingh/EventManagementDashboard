@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import prisma from './prisma.js'
 import userRoutes from './routes/user.routes.js';
+import eventRoutes from './routes/event.route.js';
 
 
 dotenv.config();
@@ -27,7 +28,7 @@ app.use(helmet({
 
 // Routes
 app.use('/api/users', userRoutes);
-
+app.use('/api/events', eventRoutes);
 
 // Checking the db connection
 async function checkDbConnection() {
