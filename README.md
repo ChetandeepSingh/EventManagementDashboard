@@ -21,6 +21,8 @@ This project allows:
 ---
 
 ## Project Structure
+
+```plaintext
 / (root)
 ├── backend
 │   ├── controllers
@@ -40,8 +42,7 @@ This project allows:
 │   └── .env
 ├── .gitignore
 └── README.md
-
----
+```
 
 ## Technologies Used
 
