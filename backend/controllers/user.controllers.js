@@ -2,7 +2,7 @@
 
 import { validateEmail,validatePassword } from '../utils/validators.js'
 import { createUser, loginUser, logoutUser } from "../services/user.service.js";
-import prisma from '../prisma.js';
+import prisma from '../db.js';
 
 
 export const registerHandler = async (req, res) => {
@@ -13,14 +13,8 @@ export const registerHandler = async (req, res) => {
             return res.status(400).json({ error: "Invalid name, email or password" });
         }
 
-        const user = await createUser({
-            name,
-            email,
-            password,
-            role
-        });
-
-        res.status(201).json({ message: "User created successfully", user });
+        const { user, accessToken } = await createUser({ name, email, password, role });
+        res.status(201).json({ message: 'User created successfully', user, accessToken });
 
     } catch (error) {
         console.log("Error in user registration:", error);
@@ -41,8 +35,8 @@ export const loginHandler = async (req, res) => {
             return res.status(400).json({ error: 'Email and password are required' });
         }
 
-        const user = await loginUser({ email, password });
-        res.json({ message: 'Login successful', user });
+        const { user, accessToken } = await loginUser({ email, password });
+        res.json({ message: 'Login successful', user, accessToken });
     } catch (error) {
         console.log("Error in user login:", error);
         if (error.message === "Invalid email or password") {

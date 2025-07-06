@@ -1,4 +1,4 @@
-import prisma from '../prisma.js';
+import prisma from '../db.js';
 
 // Create a new event
 export const createEvent = async (eventData) => {

@@ -1,4 +1,4 @@
-import prisma from '../prisma.js';
+import prisma from '../db.js';
 import { comparePassword, hashPassword } from '../utils/hash.js';
 import jwt from 'jsonwebtoken';
 

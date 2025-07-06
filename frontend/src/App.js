@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/login';
-import OrganizerDashboard from './pages/organizerdashboard';
-import UserDashboard from './pages/userdashboard';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import OrganizerDashboard from './pages/OrganizerDashboard';
+import UserDashboard from './pages/UserDashboard';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/organizer-dashboard" element={<OrganizerDashboard />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
       </Routes>

@@ -1,7 +1,7 @@
 import * as eventService from '../services/event.service.js';
 
 // Create a new event (Organizer)
-import prisma from '../prisma.js'; // or wherever your Prisma client is
+import prisma from '../db.js'; // or wherever your Prisma client is
 
 export const createEvent = async (req, res) => {
     try {

@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import prisma from './prisma.js'
+import prisma from './db.js'
 import userRoutes from './routes/user.routes.js';
 import eventRoutes from './routes/event.route.js';
 
@@ -12,7 +12,7 @@ import eventRoutes from './routes/event.route.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors({
     credentials: true,
